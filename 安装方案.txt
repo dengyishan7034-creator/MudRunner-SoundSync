@@ -1,0 +1,42 @@
+﻿SPDX-License-Identifier: AGPL-3.0-only
+Copyright (C) 2026 dengyishan7034-creator
+
+MudRunner SoundSync 0.4.2 独立重写版安装方案
+
+本版所有模组组件均可从源码直接编译。运行只需要一个 dinput8.dll，不依赖旧主 DLL、mr_native.dll、手工索引或外置 WAV。
+
+一、双方更新
+1. 双方退出游戏。
+2. 备份游戏根目录原 dinput8.dll，便于回退。
+3. 将“安装文件”中的 dinput8.dll 复制到 MudRunner.exe 所在目录，覆盖同名文件。
+   本机目录：F:\SteamLibrary\steamapps\common\MudRunner
+   只需要更新 dinput8.dll 这一个文件。
+4. 旧 mr_native.dll、_mp_sync 可以保留，新版不会使用它们。
+5. 保留原有 d3d9.dll，不修改 Config.xml、Media.zip 或 DLC 归档。
+6. 双方使用相同版本重启并联机，用吉普验证点火、熄火和左右经过。
+7. DLC 车型声音需要收听方本机有对应资源。
+
+二、检查
+新版只写一个 mr_sync.log；旧 mr_auto.log 不代表新版状态。
+日志首行应出现 MudRunner SoundSync 0.4.2 standalone source build 和 gameGuard=1。
+出现 NET SteamNetworking005 attached 表示找到游戏自己的网络接口。
+出现 AUDIO output running 表示声音输出已打开。
+进入地图后应出现 LOCAL model=uaz469 等真实车型和 engine 状态。
+联机后 NET ready=1、accepted 计数应持续增长，AUDIO model=... loaded 表示声音已从游戏加载。
+camera=1 表示捕获到摄像机；camera=0 时先使用本机车辆距离并居中播放，需要继续排查左右定位。
+熄火渐弱，远程状态超过 3 秒未更新时自动渐弱到静音。
+
+三、回退
+退出游戏，恢复备份的旧 dinput8.dll。若回到第二版，保留其 mr_native.dll 和原 _mp_sync 资源/索引。
+
+四、验证与边界
+已验证独立构建、67 项状态/网络/混音/输出检查、72 组解压检查及当前游戏 36 种车型的声源解析匹配。
+0.4.2 已通过真实启动、进入地图、原生摄像机与双人吉普联机实测；用户确认声音、方向和熄火正常。
+只适配本次检查的 MudRunner 221004 x64 布局及 SteamNetworking005 接口。纯 Epic/EOS 未实现。
+声音来源为游戏文件，混音由模组完成。音调为发动机参数估算，并非真实 RPM。
+普通 ZIP32/目录和 PCM16 已支持；特殊挂载、ZIP64、加密包与所有第三方格式尚未全面支持。
+
+五、源码
+完整源码包单独提供，可用于上传 GitHub，采用 AGPL-3.0-only。
+构建不需要原模组 DLL；游戏、系统和 Steam 运行库不随源码包分发。
+上传后提供对应版本的免费源码入口；具体说明见完整源码包 SOURCE_OFFER.txt。

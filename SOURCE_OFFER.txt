@@ -1,0 +1,9 @@
+SPDX-License-Identifier: AGPL-3.0-only
+Copyright (C) 2026 dengyishan7034-creator
+
+源码：https://github.com/dengyishan7034-creator/MudRunner-SoundSync
+版本：0.4.2
+
+发布 DLL 时提供对应提交/标签的完整源码与构建说明。对适用 AGPL 第 13 条的网络修改版本，向远程使用者显著提供该版本的免费源码入口。仅本地日志中的链接不能替代玩家可见提示。
+当前没有游戏内源码链接界面，请在联机房间说明或聊天中提供实际版本源码入口。
+本地文件夹完成不代表已经上传或验证 GitHub 入口；发布后确认实际源码可访问。
