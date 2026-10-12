@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Copyright (C) 2026 dengyishan7034-creator
+* text=auto
+*.c text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+/LICENSE text eol=lf
